@@ -1,0 +1,74 @@
+@import './var';
+@import "./UI/buttons";
+
+html {
+    font-size: 10px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    font-family:'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul > li {
+    margin: 0 1em;
+}
+
+section {
+    &.gray {
+        &:before {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100vw;
+            height: 100%;
+            background-color: #FBFCFF;
+        }
+    }
+}
+
+@media screen and (max-width: $desktop_l) {
+
+}
+
+@media screen and (max-width: $desktop_m) {
+
+}
+
+@media screen and (max-width: $tablet_l) {
+
+}
+
+@media screen and (max-width: $tablet_m) {
+
+}
+
+@media screen and (max-width: $mobile_l) {
+}
+
+@media screen and (max-width: $mobile_m) {
+
+}
+
+
+@import "./containers";
+@import "./sections/header";
+@import "./sections/main";
+@import "./sections/selection";
+@import "./sections/product";
+
+
+//custom style for slider 
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}

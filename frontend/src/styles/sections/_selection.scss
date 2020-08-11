@@ -1,0 +1,54 @@
+.selection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9rem;
+    padding: 2em 0;
+
+    &-text {
+        max-width: 826px;
+        text-align: center;
+        &_title {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 4.2rem;
+            line-height: 7rem;
+            letter-spacing: 0.03em;
+        }
+
+
+        &_subtitle {
+            padding: 0 2em;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 2.6rem;
+            line-height: 3rem;
+            color: #8A8B99;
+            margin: 0 0 5em 0;
+        }
+    }
+
+    &-items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        flex-wrap: wrap;
+
+        & li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+
+            & p {
+                font-size: 2rem;
+                margin: 2em 0;
+                text-align: center;
+            }
+        }
+    }
+}
