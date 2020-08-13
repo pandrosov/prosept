@@ -1,8 +1,11 @@
 .tab-bar-item {
     height: 0;
-    overflow: hidden;
+    max-height: 200px;
+    display: none;
   }
   
   .tab-bar-item.active {
+    display: block;
+    overflow-y: auto;
     height: auto;
   }

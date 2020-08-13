@@ -1,7 +1,7 @@
 export default {
     products: [
         {
-            _id: 1,
+            _id: "1",
             title: 'PROF-DZ',
             text: 'Универсальное средство с дезинфицирующим эффектом на основе спирта',
             options: {
@@ -14,14 +14,14 @@ export default {
                 tehnic: 'продукт 1',
                 modeOfApplication: 'продукт 1'
             },
-            img: '/assets/images/product/1.png',
+            src: '/assets/images/product/1',
             cost: {
                 0: 35,
                 1: 50
             }
         },
         {
-            _id: 2,
+            _id: "2",
             title: 'UN-DZ',
             text: 'Универсальное средство с дезинфицирующим эффектом на основе ЧАС',
             options: {
@@ -34,7 +34,7 @@ export default {
                 tehnic: 'продукт 2',
                 modeOfApplication: 'продукт 2'
             },
-            img: '/assets/images/product/2.png',
+            src: '/assets/images/product/2',
             cost: {
                 0: 35,
                 1: 50
@@ -42,7 +42,7 @@ export default {
 
         },
         {
-            _id: 3,
+            _id: "3",
             title: 'Diona Antibac',
             text: 'Жидкое мыло с антибактериальным компонентом',
             options: {
@@ -55,7 +55,7 @@ export default {
                 tehnic: 'продукт 3',
                 modeOfApplication: 'продукт 3'
             },
-            img: '/assets/images/product/3.png',
+            src: '/assets/images/product/3',
             cost: {
                 0: 35,
                 1: 50
@@ -63,7 +63,7 @@ export default {
 
         },
         {
-            _id: 4,
+            _id: "4",
             title: 'Гель для рук спиртовой',
             text: 'УС антибактериальным эффектом для санитарной обработки',
             options: {
@@ -76,7 +76,7 @@ export default {
                 tehnic: 'продукт 4',
                 modeOfApplication: 'продукт 4'
             },
-            img: '/assets/images/product/4.png',
+            src: '/assets/images/product/4',
             cost: {
                 0: 35,
                 1: 50
@@ -84,7 +84,7 @@ export default {
 
         },
         {
-            _id: 5,
+            _id: "5",
             title: 'Гель для рук',
             text: 'С антибактериальным эффектом на основе ЧАС для санитарной обработки',
             options: {
@@ -97,7 +97,7 @@ export default {
                 tehnic: 'продукт 5',
                 modeOfApplication: 'продукт 5'
             },
-            img: '/assets/images/product/5.png',
+            src: '/assets/images/product/5',
             cost: {
                 0: 35,
                 1: 50
@@ -105,7 +105,7 @@ export default {
 
         },
         {
-            _id: 6,
+            _id: "6",
             title: 'Средство для рук',
             text: 'С антибактериальным эффектом на основе ЧАС для санитарной обработки',
             options: {
@@ -118,7 +118,7 @@ export default {
                 tehnic: 'продукт 6',
                 modeOfApplication: 'продукт 6'
             },
-            img: '/assets/images/product/6.png',
+            src: '/assets/images/product/6',
             cost: {
                 0: 35,
                 1: 50
@@ -126,7 +126,7 @@ export default {
 
         },
         {
-            _id: 7,
+            _id: "7",
             title: 'Средство для рук спиртовое',
             text: 'С антибактериальным эффектом для санитарной обработки',
             options: {
@@ -139,7 +139,7 @@ export default {
                 tehnic: 'продукт 7',
                 modeOfApplication: 'продукт 7'
             },
-            img: '/assets/images/product/7.png',
+            src: '/assets/images/product/7',
             cost: {
                 0: 35,
                 1: 50
@@ -147,7 +147,7 @@ export default {
 
         },
         {
-            _id: 8,
+            _id: "8",
             title: 'Спрей для рук спиртовой',
             text: 'Универсальное средство с дезинфицирующим эффектом на основе спирта',
             options: {
@@ -160,7 +160,7 @@ export default {
                 tehnic: 'продукт 8',
                 modeOfApplication: 'продукт 8'
             },
-            img: '/assets/images/product/8.png',
+            src: '/assets/images/product/8',
             cost: {
                 0: 35,
                 1: 50

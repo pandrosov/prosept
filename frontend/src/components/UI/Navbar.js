@@ -7,8 +7,10 @@ const Navbar = () => {
     const toggleMenu = () => {
         if(isOpen) {
             setIsOpen(false);
+            document.body.style = "overflow: none;"
         } else {
             setIsOpen(true);
+            document.body.style = "overflow: hidden;"
         }
     }
 

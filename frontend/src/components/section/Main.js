@@ -11,7 +11,7 @@ const Main = () => {
             <div className="main-images">
                 <picture>
                     <source srcSet="/assets/images/main/preset-photo.webp" type="image/webp" />
-                    <img src="/assets/images/main/preset-photo.png" alt="" />
+                    <img src="/assets/images/main/preset-photo.png" alt="фото главной страницы" />
                 </picture>
             </div>
         </main>

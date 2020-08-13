@@ -1,76 +1,115 @@
 .btn {
-    border-radius: .3em;
-    padding: .9em 5.3em;
-    border: 0;
-    cursor: pointer;
+  border-radius: 0.3em;
+  padding: 0.9em 5.3em;
+  border: 0;
+  cursor: pointer;
 }
 
 .btn-primary {
-    background-color: #FFC241;
-    font-size: 16px;
-    
-    &_invert {
-        background-color: white;
-    }
+  background-color: #ffc241;
+  font-size: 16px;
 
-    &:active {
-        background-color: #FFD170;
-    }
+  &_invert {
+    background-color: white;
+  }
 
-    &:hover {
-        background-color: #FFAD00;
-    }
+  &:active {
+    background-color: #ffd170;
+  }
+
+  &:hover {
+    background-color: #ffad00;
+  }
 }
 
 .btn-item__option {
+  height: 2.6rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  
+  &:disabled {
+    color: black;
+    cursor: not-allowed;
+    &:hover {
+      transform: translateY(0);
+    }
+  }
+
+  &_invert {
+    cursor: pointer;
+    transition: all 0.3s linear;
     height: 2.6rem;
     width: 100%;
     border: 0;
-    background-color: #fff;
+    background-color: #ffc241;
 
-    &_invert {
-        height: 2.6rem;
-        width: 100%;
-        border: 0;
-        background-color: #FFC241;
-
-        &:hover {
-            box-shadow: -2px 0 2px black;
-        }
+    &:disabled {
+      color: black;
+      cursor: not-allowed;
+      &:hover {
+        transform: translateY(0);
+      }
     }
 
     &:hover {
-        box-shadow: 2px 0 2px black;
+      transform: translateY(-2px);
     }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
-
 .btn-blue {
-    padding: .9em 5.3em;
-    max-width: 185px;
-    display: flex;
-    justify-content: center;
-    color: #3665C0;
-    background-color: #fff;
-    border: 1.5px solid #3665C0;
+  max-width: 185px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3665c0;
+  background-color: #fff;
+  border: 1.5px solid #3665c0;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0;
+
+  &_standart {
+    color: #fff;
+    background-color: #3665c0;
+    border: 0;
 
     &:hover {
-        color:  #7590C2;
-        border: 1.5px solid #7590C2;
+      background-color: #577CC2;
+    }
+  
+    &:active {
+      background: #244688;
+    }
+  }
+
+  &_invert {
+    color: #3665c0;
+    background-color: #fff;
+    border: 1.5px solid #3665c0;
+
+    &:hover {
+      color: #7590c2;
+      border: 1.5px solid #7590c2;
     }
 
     &:active {
-        color:  #244688;
-        border: 1.5px solid #244688;
+      color: #244688;
+      border: 1.5px solid #244688;
     }
+  }
 }
 
 .btn-blue-invert {
-
 }
 
 .btn-black-invert {
-
 }
-
-

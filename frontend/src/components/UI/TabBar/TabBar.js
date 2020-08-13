@@ -16,6 +16,7 @@ const TabBar = (props) => {
         const activeTabNew = getChildrenLabels(children)[0]
 
         setActiveTab(activeTabNew)
+        // eslint-disable-next-line 
     }, [])
 
     const prevActiveTab = prevActiveTabRef.current
