@@ -1,20 +1,20 @@
 .nav-item {
+  font-family: Roboto, sans-serif;
     flex: 1;
-    background-color: #FFF;
-    border: 1px solid #EDEDED;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px 5px 0 0;
+    border: 0;
+    border-bottom: 2px solid #ccc;
+    background-color: transparent;
     overflow: hidden;
     outline: none;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
+    padding-bottom: 10px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    color: #ccc;
+}
   
   .nav-item.active {
-    background-color: #7CC6FE;
-    border-bottom-color: transparent;
-    color: #FFF;
+    color: #000;
+    border-bottom: 2px solid #000;
   }
   
   .vertical .nav-item {

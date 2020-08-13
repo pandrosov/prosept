@@ -3,7 +3,9 @@ import { PropTypes } from 'prop-types';
 import './TabBarNav.css'
 
 const TabBarNav = ({
-    navLabel, className, onChangeActiveTab,
+    navLabel, 
+    className, 
+    onChangeActiveTab,
 }) => {
     return (
         <button

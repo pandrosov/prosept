@@ -9,19 +9,31 @@ const Selection = () => {
             </div>
             <ul className="selection-items">
                 <li className="selection-item">
-                    <img src="/assets/images/selection/secure.png" alt="защитные составы" />
+                    <picture>
+                        <source srcSet="/assets/images/selection/secure.webp" type="image/webp" />
+                        <img src="/assets/images/selection/secure.png" alt="защитные составы" />
+                    </picture>
                     <p>Защитные составы нового поколения</p>
                 </li>
                 <li className="selection-item">
-                    <img src="/assets/images/selection/laba.png" alt="лабораторно-технический комплекс" />
+                    <picture>
+                        <source srcSet="/assets/images/selection/laba.webp" type="image/webp" />
+                        <img src="/assets/images/selection/laba.png" alt="лабораторно-технический комплекс" />
+                    </picture>
                     <p>Собственный лабораторно-технический комплекс</p>
                 </li>
                 <li className="selection-item">
-                    <img src="/assets/images/selection/clean.png" alt="Минимализация нагрузки на окружающую среду" />
+                    <picture>
+                        <source srcSet="/assets/images/selection/clean.webp" type="image/webp" />
+                        <img src="/assets/images/selection/clean.png" alt="чистота окруужающей среды" />
+                    </picture>
                     <p>Минимализация нагрузки на окружающую среду</p>
                 </li>
                 <li className="selection-item">
-                    <img src="/assets/images/selection/eco.png" alt="Полное соответствие современным экостандартам" />
+                    <picture>
+                        <source srcSet="/assets/images/selection/eco.webp" type="image/webp" />
+                        <img src="/assets/images/selection/eco.png" alt="Полное соответствие современным экостандартамс" />
+                    </picture>
                     <p>Полное соответствие современным экостандартам</p>
                 </li>
             </ul>
