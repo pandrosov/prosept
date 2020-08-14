@@ -7,7 +7,7 @@ import {
 function cartReducer(state = { cartItems: [] }, action) {
     switch (action.type) {
         case CART_ITEM_ADD:
-            return { ...state, cartItems: action.payload }
+            return { cartItems: action.payload }
         default:
             return state
     }

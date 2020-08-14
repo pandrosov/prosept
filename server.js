@@ -1,6 +1,6 @@
-import express from 'express';
-import data from './backend/data'
-import path from 'path'
+const express = require('express');
+const data = require('./backend/data');
+const path = require('path')
 
 const app = express();
 
