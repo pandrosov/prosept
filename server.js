@@ -1,5 +1,5 @@
 import express from 'express';
-import data from './data'
+import data from './backend/data'
 import path from 'path'
 
 const app = express();
