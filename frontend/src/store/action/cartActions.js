@@ -2,12 +2,12 @@ import { CART_ITEM_ADD } from './actionsTypes';
 import e from 'express';
 
 const addToCart = (product, qty) => (dispatch, getState) => {
-    const { cartItems } = {...getState()}
+    const { cartItems } = { ...getState() }
 
-    if(cartItem.length !== 0) {
+    if (cartItem.length !== 0) {
         cartItems.concat(product)
     } else {
-        
+
     }
 
 
@@ -20,5 +20,10 @@ const addToCart = (product, qty) => (dispatch, getState) => {
             "sadfsadf": 5
         }
     ]
-    dispatch({type: CART_ITEM_ADD, payload: cartItemsNew})
+    dispatch({ type: CART_ITEM_ADD, payload: cartItemsNew })
+}
+
+
+const delelteFromCart = (id) => (dispatch) => {
+    const { cartItems } = { ...getState() }
 }
