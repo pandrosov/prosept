@@ -1,7 +1,15 @@
 import { CART_ITEM_ADD } from './actionsTypes';
+import e from 'express';
 
-const addToCart = (id, selectOption, qty) => (dispatch, getState) => {
+const addToCart = (product, qty) => (dispatch, getState) => {
     const { cartItems } = {...getState()}
+
+    if(cartItem.length !== 0) {
+        cartItems.concat(product)
+    } else {
+        
+    }
+
 
     console.log(cartItems)
     const cartItemsNew = [

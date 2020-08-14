@@ -15,12 +15,9 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "client-install": "npm install --prefix frontend",
-    "server": "nodemon server.js --exec babel-node --presets babel-preset-env",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
-  },
+    "start": "nodemon --watch backend --exec babel-node backend/server.js",
+    "build": "rm -rf dist && babel backend -d dist",
+    "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pandrosov/prosept.git"
