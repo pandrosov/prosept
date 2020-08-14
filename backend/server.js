@@ -14,4 +14,4 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 80, () => {console.log("Server startea at port: 5000")})
+app.listen(process.env.PORT || 3000, () => {console.log("Server startea at port: 5000")})
