@@ -15,7 +15,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "cd backend node server.js",
+    "start": "cd backend node server.mjs",
     "start:dev": "nodemon --watch backend --exec babel-node backend/server.js",
     "build": "rm -rf dist && babel backend -d dist",
     "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
