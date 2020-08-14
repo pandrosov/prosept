@@ -10,6 +10,9 @@ export const PRODUCT_OPTION_CHANGE = 'PRODUCT_OPTION_CHANGE'
 
 
 //cart reducer action type constant 
-export const CART_ITEM_ADD = ''
-export const CART_ITEM_MINUS = ''
-export const CART_ITEM_PLUS = ''
+export const CART_ITEM_ADD = 'CART_ITEM_ADD'
+export const CART_ITEM_MINUS = 'CART_ITEM_MINUS'
+export const CART_ITEM_PLUS = 'CART_ITEM_PLUS'
+export const CART_ITEM_DELETE = 'CART_ITEM_ADD'
+export const CART_TOTAL_COST = 'CART_TOTAL_COST'
+export const CART_TOTAL_COUNT = 'CART_TOTAL_COUNT'
