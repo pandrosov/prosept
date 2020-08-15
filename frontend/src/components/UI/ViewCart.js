@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
+import { useSelector, useDispatch } from 'react-redux'
+import { showModal } from '../../store/action/modalActions'
 
 const Cart = styled.div`
     position: relative;
@@ -23,14 +25,13 @@ const Cart = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 1;
         top: -.6em;
         right: -.6em;
         width: 1.9rem;
         height: 1.9rem;
         border-radius: 50%;
         background-color: #FFC241;
-        font-size: 12px;
+        font-size: 13px;
     }
 
     & {
@@ -44,11 +45,14 @@ const Cart = styled.div`
 
 
 
-const ViewCart = ({preview}) => {
+const ViewCart = () => {
+    const dispatch = useDispatch()
+    const { totalCount } = useSelector(state => state.cart)
+
     return (
-        <Cart preview className="cart">
+        <Cart className="cart" onClick={() => { dispatch(showModal({ type: 'cart' })) }}>
             <img src="/assets/images/header/cart.png" alt="asdas" srcSet="" />
-            <span className="cart-counter">1</span>
+            <span className="cart-counter">{totalCount}</span>
         </Cart>
     );
 }

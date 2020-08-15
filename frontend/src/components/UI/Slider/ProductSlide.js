@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import TabBar from './../TabBar/TabBar';
 import TabBarItem from './../TabBar/TabBarItem';
@@ -62,7 +62,8 @@ const BtnSlide = styled.div`
   grid-template-columns: 1fr 1fr;
 `
 
-const ProductSlide = ({ history, product: {
+const ProductSlide = ({ onChangeOptions, history, product: {
+  _id, 
   src,
   title,
   text,
@@ -81,10 +82,10 @@ const ProductSlide = ({ history, product: {
         <ProductMain>
           <div className="product__img">
             <picture>
-              <source srcSet={`${src}.webp`} type="image/webp"/>
+              <source srcSet={`${src}.webp`} type="image/webp" />
               <img src={`${src}.png`} alt="картинка продукта" />
             </picture>
-            
+
           </div>
           <ProductText className="product__text">
             <div className="product__text_title">
@@ -96,11 +97,15 @@ const ProductSlide = ({ history, product: {
                 <span className="product__options__prop_name">Объем</span>
                 <div className="gtp-btn_option">
                   <button
+                    disabled={selectOption === 0}
+                    onClick={() => onChangeOptions(_id, 0)}
                     className={selectOption === 0 ? "btn-item__option_invert" : "btn-item__option"}
                   >
                     {options[0]}
                   </button>
                   <button
+                    disabled={selectOption === 1}
+                    onClick={() => onChangeOptions(_id, 1)}
                     className={selectOption === 1 ? "btn-item__option_invert" : "btn-item__option"}
                   >
                     {options[1]}

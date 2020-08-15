@@ -27,3 +27,8 @@ const addToCart = (product, qty) => (dispatch, getState) => {
 const delelteFromCart = (id) => (dispatch) => {
     const { cartItems } = { ...getState() }
 }
+
+export {
+    addToCart,
+    delelteFromCart
+}

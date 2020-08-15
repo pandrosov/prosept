@@ -26,9 +26,9 @@ const CloseBtnStyle = styled.div`
 `
 
 
-const CloseBtn = ({ onClick }) => {
+const CloseBtn = ({ onClick, className }) => {
     return (
-        <CloseBtnStyle onClick={onClick}/>
+        <CloseBtnStyle className={className} onClick={onClick}/>
     );
 }
 

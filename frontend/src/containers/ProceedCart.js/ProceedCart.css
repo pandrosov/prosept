@@ -1,0 +1,36 @@
+.card-block-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.card-block-enter-active {
+  opacity: 1;
+  transform: translateX(-100px);
+  transition: all 0.3s linear;
+}
+.card-block-exit {
+  opacity: 1;
+}
+.card-block-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s linear;
+}
+
+
+.info-block-enter {
+    opacity: .5;
+    transform: translateX(100%);
+}
+.info-block-enter-active {
+    opacity: 1;
+    transform: translateX(100px);
+    transition: all 0.3s linear;
+}
+.info-block-exit {
+  opacity: 1;
+}
+.info-block-exit-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s linear;
+}

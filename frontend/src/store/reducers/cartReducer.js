@@ -4,10 +4,10 @@ import {
 } from '../action/actionsTypes';
 
 
-function cartReducer(state = { cartItems: [] }, action) {
+function cartReducer(state = {cartItems: [], totalCount: 0, totalCost: 0}, action) {
     switch (action.type) {
         case CART_ITEM_ADD:
-            return { cartItems: action.payload }
+            return {...state, cart: action.payload }
         default:
             return state
     }

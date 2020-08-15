@@ -5,6 +5,7 @@ import Main from './components/section/Main'
 import Selection from './components/section/Selection'
 import ProductList from './components/section/ProductList'
 import SliderView from './components/UI/Slider/SliderView';
+import Modal from './components/Modal/Modal'
 
 const MainPage = () => (
     <>
@@ -12,6 +13,7 @@ const MainPage = () => (
         <Main />
         <Selection />
         <ProductList />
+        <Modal />
     </>
 )
 

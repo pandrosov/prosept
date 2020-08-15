@@ -1,11 +1,15 @@
-import React from 'react';
-import {  useSelector } from 'react-redux'
-import Slider from 'react-slick'
-import styled from 'styled-components';
+import React, { useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { useDispatch, useSelector } from 'react-redux'
+import { changeOptions } from '../../../store/action/productActions'
+import Slider from 'react-slick'
+import styled from 'styled-components';
 import ProductSlide from './ProductSlide';
+import { listProducts } from '../../../store/action/productActions'
 import Loader from '../Loader/Loader'
+
 
 const SliderWrapper = styled.div`
   position: fixed;
@@ -19,13 +23,20 @@ const SliderWrapper = styled.div`
 
 
 const SliderView = props => {
+  const { id = 1 } = props.location.state;
+  const productListState = useSelector((state) => state.productList);
+  const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.productList);
-  const { products, loading, error } = productList;
-  const { id } = props.location.state;
+  useEffect(() => {
+    if(productListState.products.length === 0) {
+      dispatch(listProducts())
+    }
+  }, [])
+
+  const onChangeOptions = (idProduct, select) => dispatch(changeOptions(idProduct, select));
 
   const initialSlide = (id) => {
-    return products.findIndex((product, index, array) => product._id === id ? index : false)
+    return productListState.products.findIndex((product, index, array) => product._id === id ? index : false)
   }
 
   const settings = {
@@ -37,7 +48,7 @@ const SliderView = props => {
 
   const renderSlides = () => {
     try {
-      return products.map((product, index) => <ProductSlide key={`${product._id}`} product={product} />)
+      return productListState.products.map((product, index) => <ProductSlide onChangeOptions={onChangeOptions} key={`${product._id}`} product={product} />)
     }
     catch (e) {
       return <div>The product not found...</div>
@@ -47,19 +58,19 @@ const SliderView = props => {
   return (
     <>
       {
-        loading ? <Loader />
-                :
-          error ? <div>Возникла ошибка</div>
-                :
-                  (
-                    <SliderWrapper>
-                      <Slider {...settings}>
-                        {
-                          renderSlides()
-                        }
-                      </Slider>
-                    </SliderWrapper>
-                  )
+        productListState.loading ? <Loader />
+          :
+          productListState.error ? <div>Возникла ошибка</div>
+            :
+            (
+              <SliderWrapper>
+                <Slider {...settings}>
+                  {
+                    renderSlides()
+                  }
+                </Slider>
+              </SliderWrapper>
+            )
       }
     </>
   );
