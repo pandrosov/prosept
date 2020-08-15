@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import ViewCart from './ViewCart';
 
-const Navbar = () => {
+const Navbar = ({ moveToRef, main, productList }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    function clickNavItem(ref) {
+        setIsOpen(false)
+        moveToRef(ref)
+        document.body.style = "overflow: none;"
+    }
 
     const toggleMenu = () => {
         if(isOpen) {
@@ -22,9 +28,9 @@ const Navbar = () => {
             </div>
             <div className={isOpen ? "navbar-overlay active" : "navbar-overlay" }>
                 <ul className="navbar">
-                    <li className="navbar-item"><a className="navbar-link" href="/product">Продукция</a></li>
-                    <li className="navbar-item"><a className="navbar-link" href="/about">О нас</a></li>
-                    <li className="navbar-item"><a className="navbar-link" href="/contact">Контакты</a></li>
+                    <li className="navbar-item" onClick={() => clickNavItem(productList)}>Продукция</li>
+                    <li className="navbar-item" onClick={() => clickNavItem(main)}>О нас</li>
+                    <li className="navbar-item" onClick={() => clickNavItem(main)}>Контакты</li>
                 </ul>
             </div>
             <ViewCart/>

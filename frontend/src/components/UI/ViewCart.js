@@ -5,7 +5,7 @@ import { showModal } from '../../store/action/modalActions'
 
 const Cart = styled.div`
     position: relative;
-    margin:0 3em;
+    margin-right: 3em;
     cursor: pointer;
 
     &:hover {

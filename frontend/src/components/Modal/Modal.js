@@ -16,6 +16,7 @@ const ModalStyle = styled.div`
     max-width: 100%;
     overflow: hidden;
     background-color: #fff;
+    z-index: 3;
 
     &:before {
         content: '';
@@ -37,6 +38,11 @@ const ModalStyle = styled.div`
        }
 
     & {
+        @media screen and (max-width: 1366px) {
+            left: 10vw;
+            right: 10vw;
+        }
+
         @media screen and (max-width: 1024px) {
             left: 0;
             right: 0;

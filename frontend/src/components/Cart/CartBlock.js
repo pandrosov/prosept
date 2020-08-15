@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import Layout from '../HOC/LayoutProceed'
 
 const ProductsTop = styled.div`
-
 `
-
 const ProductsBody = styled.div`
     overflow: auto;
     max-height: 100%;
@@ -67,11 +65,14 @@ const ProductsBody = styled.div`
   }
 `
 const ProductsFooter = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 `
 
 const CartBlock = ({ nextStep, className, cart }) => {
-  const { cartItems, totalCount, totalCost } = cart;
+  const { cartItems, totalCost } = cart;
 
   const isEmptyBasket = cartItems.length === 0;
 
@@ -89,7 +90,7 @@ const CartBlock = ({ nextStep, className, cart }) => {
         </thead>
         <tbody>
           <tr>
-            <td>000001</td>
+            <td>dasdas</td>
             <td>Lani</td>
             <td>Ovendale</td>
             <td>lovendale0@w3.org</td>
@@ -117,7 +118,7 @@ const CartBlock = ({ nextStep, className, cart }) => {
       <ProductsFooter>
         <div>
           <span>Итого</span>
-          <span>00 BYN</span>
+          <span>{totalCost} BYN</span>
         </div>
         <button disabled={isEmptyBasket} onClick={nextStep} >Следующий шаг</button>
       </ProductsFooter>

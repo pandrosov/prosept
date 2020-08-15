@@ -6,7 +6,7 @@ import Product from '../Product';
 import Loader from './../UI/Loader/Loader';
 
 
-const ProductList = () => {
+const ProductList = ({ anchor }) => {
     const productList = useSelector((state) => state.productList)
     const { products, error, loading } = productList
     const dispatch = useDispatch()
@@ -28,7 +28,7 @@ const ProductList = () => {
     }
 
     return (
-        <section className="product">
+        <section className="product" ref={anchor}>
             <h1 className="product-title">Наша продукция</h1>
             <div className="product-list">
                 {

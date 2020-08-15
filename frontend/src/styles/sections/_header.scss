@@ -14,24 +14,28 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 list-style: none;
+                margin-right: 3em;
 
                 .navbar-item {
-                    margin: 0 2.5em;
-                }
-                
-                li > a {
-                    position: relative;
-                    text-decoration: none;
+                    margin-right: 0 2.5em;
                     font-size: 20px;
-                    color: black;
-                    padding-bottom: .2em;
-                    border-bottom: 0;
+                    border: 2px solid transparent;
+                    cursor: pointer;
 
                     &:hover {
                         border-bottom: 2px solid black;
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet_l) {
+    header {
+        li {
+            margin: 2rem;
+            font-size: 18px;
         }
     }
 }
@@ -67,7 +71,7 @@ header {
                     width: 90vw;
                     margin-left: 10vw;
                     background-color: #99B8F4;
-                    
+
                     .navbar-item {
                         margin: 2.5em 0;
                     }

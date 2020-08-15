@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState } from 'react';
+import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import TabBar from './../TabBar/TabBar';
 import TabBarItem from './../TabBar/TabBarItem';
 import ViewCart from './../ViewCart';
-import CloseBtn from './../CloseBtn'
+import CloseBtn from './../CloseBtn';
+import { addToCart } from '../../../store/action/cartActions'
+
 
 const ProductWrapper = styled.div`
   background-color: #fff;
@@ -15,29 +18,36 @@ const ProductWrapper = styled.div`
   grid-template-rows: 1fr 300px;
   margin: 10vh 15vw 0; 
   position: relative;
+
+  & {
+    @media screen and (max-width: 1366px) {
+      
+    }
+
+    @media screen and (max-width: 1024px) {
+      margin: 10vh 0;
+    }
+
+    @media screen and (max-width: 510px) {
+      font-size: 20px;
+      margin: 0;
+      grid-template-columns: m;
+    }
+  }
 `
 
 const ProductText = styled.div`
   display: grid;
 
-  & .product__options__prop {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    
-    & .grp-btn {
-      & .gtp-btn_option{
-        display: flex;
-        margin-top: 1.7rem;
-      }
-    }
-  }
+
 `
 
 const ProductMain = styled.div`
   display: grid;
-  grid-template-columns: 387px 1fr;
-  margin-bottom: 9.5rem;
+  grid-template-columns: minmax(113px,387px) 1fr;
+  margin-bottom: 8rem;
   grid-column: 1/4;
+  grid-row-gap: 2rem;
 
   & .product__img {
     display: flex;
@@ -48,10 +58,80 @@ const ProductMain = styled.div`
       object-position: center;
     }
   }
+
+  & .product__options__grp-btn {
+    display: flex;
+    grid-column-gap: 70px;
+    grid-column: 2/3;
+  }
+
+  & .grp-btn__count {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 133px;
+  }
+
+  & .product__options__prop {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 73px;
+    
+    &_cost {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    & .grp-btn {
+      display: flex;
+      flex-direction:column;
+      justify-content: space-between;
+
+      & .gtp-btn_option{
+        display: flex;
+        max-width: 280px;
+      }
+    }
+  }
+
+  & {
+    
+    @media screen and (max-width: 768px) {
+      grid-template-columns: minmax(113px,300px) 1fr;
+    }
+
+    @media screen and (max-width: 760px) {
+      grid-template-columns: minmax(113px,300px) 1fr;
+
+      & .product__options__grp-btn {
+        grid-column: 1/3;
+        grid-column-gap: 10px;
+      }
+
+      & .product__options__prop {
+        grid-column: 1/3;
+      }
+    }
+
+    @media screen and (max-width: 510px) {
+      grid-template-columns: minmax(113px,204px) minmax(120px, 1fr);
+    }
+
+  }
 `
 
 const ProductProp = styled.div`
   grid-column: 1/3;
+
+  & {
+    @media screen and (max-width: 1366px) {
+      grid-column: 1/4;
+    }
+  }
 `
 
 const BtnSlide = styled.div`
@@ -62,8 +142,8 @@ const BtnSlide = styled.div`
   grid-template-columns: 1fr 1fr;
 `
 
-const ProductSlide = ({ onChangeOptions, history, product: {
-  _id, 
+const ProductSlide = ({ onChangeOptions, history, product, product: {
+  _id,
   src,
   title,
   text,
@@ -72,8 +152,20 @@ const ProductSlide = ({ onChangeOptions, history, product: {
   productProp,
   cost,
 } }) => {
+  const dispatch = useDispatch()
+
   const redirectHomePage = () => {
     history.push('/')
+  }
+
+  const [qty, setQty] = useState(1);
+
+  const plusQty = () => {
+    setQty(prevState => (prevState+1))
+  }
+
+  const minusQty = () => {
+    setQty(prevState => (prevState-1))
   }
 
   return (
@@ -85,13 +177,13 @@ const ProductSlide = ({ onChangeOptions, history, product: {
               <source srcSet={`${src}.webp`} type="image/webp" />
               <img src={`${src}.png`} alt="картинка продукта" />
             </picture>
-
           </div>
           <ProductText className="product__text">
             <div className="product__text_title">
               <h1>{title}</h1>
               <p>{text}</p>
             </div>
+          </ProductText>
             <div className="product__options__prop">
               <div className="grp-btn">
                 <span className="product__options__prop_name">Объем</span>
@@ -112,15 +204,15 @@ const ProductSlide = ({ onChangeOptions, history, product: {
                   </button>
                 </div>
               </div>
-              <span className="product__options__prop_cost">{cost[selectOption]}</span>
+              <span className="product__options__prop_cost">{`${qty * cost[selectOption]} BYN`}</span>
             </div>
-
-          </ProductText>
           <div className="product__options__grp-btn">
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-            <button className="btn btn-blue btn-blue_standart">В корзину</button>
+            <div className="grp-btn__count">
+              <button disabled={qty === 1} className="btn-count" onClick={minusQty}>-</button>
+              <span>{qty}</span>
+              <button className="btn-count" onClick={plusQty}>+</button>
+            </div>
+            <button onClick={() => dispatch(addToCart(product, qty))} className="btn btn-blue btn-blue_standart">В корзину</button>
           </div>
         </ProductMain>
         <ProductProp>
@@ -137,7 +229,7 @@ const ProductSlide = ({ onChangeOptions, history, product: {
           </TabBar>
         </ProductProp>
         <BtnSlide>
-          <ViewCart></ViewCart>
+          <ViewCart/>
           <CloseBtn onClick={redirectHomePage} />
         </BtnSlide>
       </ProductWrapper>

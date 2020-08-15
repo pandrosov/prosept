@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../UI/Navbar';
 
-const Header = () => {
+const Header = ({ moveToRef, productList, main }) => {
     return (
         <header className="header">
             <div className="header-logo">
@@ -12,7 +12,7 @@ const Header = () => {
                     <img src="/assets/images/header/logo.png" alt="logo logo-aventus" />
                 </picture>
             </div>
-            <Navbar />
+            <Navbar moveToRef={moveToRef} productList={productList} main={main}/>
         </header>
     );
 }

@@ -1,31 +1,61 @@
-import { CART_ITEM_ADD } from './actionsTypes';
-import e from 'express';
+import {
+    CART_ITEM_ADD, CART_TOTAL_COUNT, CART_TOTAL_COST
+} from './actionsTypes';
+import Cookie from 'js-cookie'
 
-const addToCart = (product, qty) => (dispatch, getState) => {
-    const { cartItems } = { ...getState() }
+const setTotalCost = (newItem, qty) => (dispatch,getState) => {
+    const { cart: { totalCost } } = { ...getState() }
+    const { productCart: {selectOption} } = newItem
 
-    if (cartItem.length !== 0) {
-        cartItems.concat(product)
-    } else {
+    const cost = totalCost + newItem.productCart.cost[selectOption] * qty
+    dispatch({type: CART_TOTAL_COST, payload: cost})
 
-    }
-
-
-    console.log(cartItems)
-    const cartItemsNew = [
-        {
-            "adas": 3
-        },
-        {
-            "sadfsadf": 5
-        }
-    ]
-    dispatch({ type: CART_ITEM_ADD, payload: cartItemsNew })
 }
 
+const getTotalCount = (qty) => (dispatch, getState) => {
+    const { cart: { totalCount } } = { ...getState() }
 
-const delelteFromCart = (id) => (dispatch) => {
-    const { cartItems } = { ...getState() }
+    const count = totalCount + qty
+    dispatch({type: CART_TOTAL_COUNT, payload: count})
+}
+
+const addToCart = (product, qty) => (dispatch, getState) => {
+    const { cart: { cartItems } } = { ...getState() }
+
+    const indexItem = cartItems.findIndex(item => {
+        return JSON.stringify(item.productCart) === JSON.stringify(product)
+    })
+
+    if (indexItem === -1) {
+        const newProduct = { productCart: { ...product }, qty }
+        const newCartItems = [...cartItems, newProduct]
+       
+        dispatch({ type: CART_ITEM_ADD, payload: newCartItems })
+        dispatch(setTotalCost(newProduct, qty))
+        dispatch(getTotalCount(qty))
+    } else {
+        const tempCartItems = [...cartItems]
+        const item = { ...tempCartItems[indexItem] }
+        item.qty += qty
+        tempCartItems[indexItem] = item
+        
+        dispatch({ type: CART_ITEM_ADD, payload: tempCartItems })
+        dispatch(setTotalCost(item, qty))
+        dispatch(getTotalCount(qty))
+
+        const { cart } = getState()
+        Cookie.set("cart", JSON.stringify(cart))
+    }
+}
+
+const delelteFromCart = (id) => (dispatch, getState) => {
+    const { cart: { cartItems } } = {...getState()}
+    const deleteProduct = cartItems.productCart[id]
+    const newCartItems = cartItems.productCart.filter(item => item._id !== id)
+    console.log(deleteProduct)
+
+    const { cart } = getState()
+    Cookie.set("cart", JSON.stringify(cart))
 }
 
 export {

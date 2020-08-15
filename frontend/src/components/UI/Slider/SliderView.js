@@ -17,13 +17,13 @@ const SliderWrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 2;
   background: rgba(208, 213, 230, 0.28);
 `
 
 
 const SliderView = props => {
-  const { id = 1 } = props.location.state;
+  const { id } = props.location.state || 1;
   const productListState = useSelector((state) => state.productList);
   const dispatch = useDispatch();
 
@@ -31,6 +31,7 @@ const SliderView = props => {
     if(productListState.products.length === 0) {
       dispatch(listProducts())
     }
+    // eslint-disable-next-line
   }, [])
 
   const onChangeOptions = (idProduct, select) => dispatch(changeOptions(idProduct, select));
@@ -38,11 +39,13 @@ const SliderView = props => {
   const initialSlide = (id) => {
     return productListState.products.findIndex((product, index, array) => product._id === id ? index : false)
   }
-
+  
+  const isArrow = window.innerWidth <= 1024
+  
   const settings = {
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: !isArrow,
     initialSlide: initialSlide(id)
   }
 
