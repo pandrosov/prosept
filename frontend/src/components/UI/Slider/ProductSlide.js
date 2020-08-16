@@ -34,7 +34,7 @@ const ProductWrapper = styled.div`
       grid-row-gap: 20px;
       grid-template-columns: minmax(120px, 150px) 1fr;
       grid-template-rows: 1fr minmax(150px, 250px);
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 `

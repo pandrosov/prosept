@@ -18,10 +18,14 @@ const WrapperProceed = styled.div`
     & {
         @media screen and (max-width: 510px) {
             padding: 2.5rem;
+
         }
 
         @media screen and (max-width: 510px) {
             padding: 2.5rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 `

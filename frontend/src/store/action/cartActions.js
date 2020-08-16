@@ -104,8 +104,6 @@ const plusQtyItem = (product) => (dispatch, getState) => {
         return JSON.stringify(item.productCart) === JSON.stringify(product)
     })
 
-    console.log(indexItem)
-
     const tempCartItems = [...cartItems]
     const tempProduct = { ...cartItems[indexItem] }
 
