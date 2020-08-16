@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/section/Header'
 import Main from './components/section/Main'
@@ -6,8 +6,16 @@ import Selection from './components/section/Selection'
 import ProductList from './components/section/ProductList'
 import SliderView from './components/UI/Slider/SliderView';
 import Modal from './components/Modal/Modal'
+import { useSelector } from 'react-redux';
+import Cookie from 'js-cookie'
 
 const MainPage = () => {
+    const { cart } = useSelector(state => state)
+
+    useEffect(() => {
+        Cookie.set('cart', cart)
+    }, [cart])
+
     const moveToRef = (node) => {
         console.log(node)
         node.current.scrollIntoView({ behavior: 'smooth' });

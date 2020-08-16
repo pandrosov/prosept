@@ -18,6 +18,7 @@ const ProductWrapper = styled.div`
   grid-template-rows: 1fr 300px;
   margin: 10vh 15vw 0; 
   position: relative;
+  grid-row-gap: 60px;
 
   & {
     @media screen and (max-width: 1366px) {
@@ -29,9 +30,11 @@ const ProductWrapper = styled.div`
     }
 
     @media screen and (max-width: 510px) {
+      padding-top: 4.5rem;
+      grid-row-gap: 20px;
+      grid-template-columns: minmax(120px, 150px) 1fr;
+      grid-template-rows: 1fr minmax(150px, 250px);
       font-size: 20px;
-      margin: 0;
-      grid-template-columns: m;
     }
   }
 `
@@ -44,8 +47,6 @@ const ProductText = styled.div`
 
 const ProductMain = styled.div`
   display: grid;
-  grid-template-columns: minmax(113px,387px) 1fr;
-  margin-bottom: 8rem;
   grid-column: 1/4;
   grid-row-gap: 2rem;
 
@@ -54,6 +55,7 @@ const ProductMain = styled.div`
     justify-content: center;
 
     & img {
+      max-width: 100%;
       object-fit: contain;
       object-position: center;
     }
@@ -105,7 +107,7 @@ const ProductMain = styled.div`
     }
 
     @media screen and (max-width: 760px) {
-      grid-template-columns: minmax(113px,300px) 1fr;
+      grid-template-columns: minmax(113px,204px) 1fr;
 
       & .product__options__grp-btn {
         grid-column: 1/3;
@@ -118,7 +120,7 @@ const ProductMain = styled.div`
     }
 
     @media screen and (max-width: 510px) {
-      grid-template-columns: minmax(113px,204px) minmax(120px, 1fr);
+      grid-template-columns: minmax(113px,150px) minmax(120px, 1fr);
     }
 
   }

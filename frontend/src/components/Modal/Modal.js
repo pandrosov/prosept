@@ -57,7 +57,10 @@ const Modal = () => {
     
 
     if(!modal) {
+        document.body.style = 'overflow: auto;'
         return false
+    } else {
+        document.body.style = 'overflow: hidden;'
     }
 
     const renderModal = () => {

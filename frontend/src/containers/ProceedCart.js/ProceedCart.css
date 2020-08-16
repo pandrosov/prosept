@@ -1,4 +1,5 @@
 .card-block-enter {
+  position: absolute;
   opacity: 0;
   transform: translateX(-100%);
 }
@@ -18,6 +19,7 @@
 
 
 .info-block-enter {
+    position: absolute;
     opacity: .5;
     transform: translateX(100%);
 }

@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
-import Cookie from 'js-cookie'
 import rootReducer from './reducers/rootReducer'
+import { saveState, loadState } from './../helpers/localStorage';
 
-const cart = Cookie.getJSON("cart") || {cartItems: [], totalCount: 0, totalCost: 0 }
-console.log(cart)
+const cart = loadState() || { cartItems: [], totalCount: 0, totalCost: 0 }
+
 const initialState = {
-    cart: {...cart}
+    cart
 }
 
 const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -16,5 +16,10 @@ const store = createStore(
     initialState,
     composeEnchancer(applyMiddleware(thunk))
 );
+
+store.subscribe(() => {
+    const { cart } = store.getState()
+    saveState(cart)
+});
 
 export default store

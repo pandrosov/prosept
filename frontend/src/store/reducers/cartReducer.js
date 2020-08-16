@@ -22,7 +22,6 @@ function cartReducer(state = { cartItems: [], totalCount: 0, totalCost: 0 }, act
             return { ...state, cartItems: action.payload }
         case CART_ITEM_DELETE:
             return { ...state, cartItems: action.payload }
-
         default:
             return state
     }

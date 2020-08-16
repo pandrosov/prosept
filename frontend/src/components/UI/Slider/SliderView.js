@@ -23,7 +23,7 @@ const SliderWrapper = styled.div`
 
 
 const SliderView = props => {
-  const { id } = props.location.state || 1;
+  const { id } = props.location.state;
   const productListState = useSelector((state) => state.productList);
   const dispatch = useDispatch();
 
@@ -37,9 +37,9 @@ const SliderView = props => {
   const onChangeOptions = (idProduct, select) => dispatch(changeOptions(idProduct, select));
 
   const initialSlide = (id) => {
-    return productListState.products.findIndex((product, index, array) => product._id === id ? index : false)
+    return productListState.products.findIndex((product) => product._id === id)
   }
-  
+    
   const isArrow = window.innerWidth <= 1024
   
   const settings = {

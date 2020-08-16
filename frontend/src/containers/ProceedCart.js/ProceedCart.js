@@ -14,13 +14,21 @@ const WrapperProceed = styled.div`
     overflow: hidden;
     background-color: #fff;
     padding: 5rem;
+
+    & {
+        @media screen and (max-width: 510px) {
+            padding: 2.5rem;
+        }
+
+        @media screen and (max-width: 510px) {
+            padding: 2.5rem 0;
+        }
+    }
 `
 
 const ProceedCart = () => {
     const [steps, setSteps] = useState(1)
     const dispatch = useDispatch()
-    const cart = useSelector(state => state.cart)
-    console.log(cart)
 
     const submitCart = () => {
         dispatch(hideModal())
@@ -36,7 +44,7 @@ const ProceedCart = () => {
                 classNames="card-block"
                 unmountOnExit
             >
-                <CartBlock cart={cart} className={steps === 1 ? "active" : null} nextStep={() => { setSteps(2) }} />
+                <CartBlock className={steps === 1 ? "active" : null} nextStep={() => { setSteps(2) }} />
             </CSSTransition>
             <CSSTransition
                 in={steps === 2}
