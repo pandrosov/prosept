@@ -54,10 +54,10 @@ const addToCart = (product, qty) => async (dispatch, getState) => {
 
 }
 
-const deleteFromCart = (id) => (dispatch, getState) => {
+const deleteFromCart = (product) => (dispatch, getState) => {
     try {
         const { cart: { cartItems } } = { ...getState() }
-        const newCartItems = cartItems.filter(item => JSON.stringify(item.productCart._id) !== JSON.stringify(id))
+        const newCartItems = cartItems.filter(item => JSON.stringify(item.productCart) !== JSON.stringify(product))
 
         dispatch({ type: CART_ITEM_DELETE, payload: newCartItems })
         if (newCartItems.lenght === 0) {

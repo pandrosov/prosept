@@ -273,7 +273,7 @@ const CartBlock = ({ nextStep, className }) => {
           {
             cartItems.map(({ productCart, qty }, index) => {
               return (
-                <tr key={productCart._id}>
+                <tr key={`${productCart.title}-${productCart._id}-${productCart.selectOption}`}>
                   <td>
                     <div className="product-body">
                       <div className="product-body_img">
@@ -298,7 +298,7 @@ const CartBlock = ({ nextStep, className }) => {
                   </td>
                   <td>{productCart.cost[productCart.selectOption]} BYN</td>
                   <td>
-                    <div className="remove-btn" onClick={() => dispatch(deleteFromCart(productCart._id))}>
+                    <div className="remove-btn" onClick={() => dispatch(deleteFromCart(productCart))}>
                       <img src="/assets/images/cart/remove.png" alt="" />
                     </div>
                   </td>
